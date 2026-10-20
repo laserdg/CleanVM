@@ -1,11 +1,12 @@
+import json
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical
 from textual.widgets import Header, SelectionList, Label, Button, Markdown, Select
 
 
-def savejson(json):
-    with open('options.json', 'w') as f:
-        f.write(str(json).replace("'", '"').replace("True", "true").replace("False", "false"))
+def savejson(data):
+    with open('options.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f)
 
 
 Head = """
@@ -66,12 +67,20 @@ class InstallApp(App):
             Button.success("Install CleanVM", id="install"),
         )
 
+    def _selected_values(self, widget):
+        selected = widget.selected
+        if not selected:
+            return []
+        if isinstance(selected, set):
+            return sorted(selected)
+        return list(selected)
+
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "install":
             data = {
-                "defaultapps": self.query_one("#defaultapps").selected,
-                "programming": self.query_one("#programming").selected,
-                "apps": self.query_one("#apps").selected,
+                "defaultapps": self._selected_values(self.query_one("#defaultapps")),
+                "programming": self._selected_values(self.query_one("#programming")),
+                "apps": self._selected_values(self.query_one("#apps")),
                 "enablekvm": True,
                 "DE": self.query_one("#de").value,
                 "install": True,
