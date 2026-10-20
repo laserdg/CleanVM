@@ -1,6 +1,6 @@
 import json
 from textual.app import App, ComposeResult
-from textual.containers import Horizontal, Vertical
+from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.widgets import Header, SelectionList, Label, Button, Markdown, Select
 
 
@@ -31,41 +31,46 @@ class InstallApp(App):
 
     def compose(self) -> ComposeResult:
         yield Header()
-        yield Markdown(Head)
-        yield Vertical(
-            Vertical(
-                Label("Default apps"),
-                SelectionList[int](
-                    ("Helium Browser", 0, True),
-                    id="defaultapps",
+        with VerticalScroll():
+            yield Markdown(Head)
+            yield Vertical(
+                Vertical(
+                    Label("Default apps"),
+                    SelectionList[int](
+                        ("Helium Browser", 0, True),
+                        id="defaultapps",
+                    ),
                 ),
-            ),
-            Vertical(
-                Label("Programming"),
-                SelectionList[int](
-                    ("OpenJDK 8 (jre)", 0),
-                    ("OpenJDK 17 (jre)", 1),
-                    ("VSCodium", 2),
-                    id="programming",
+                Vertical(
+                    Label("Programming"),
+                    SelectionList[int](
+                        ("OpenJDK 8 (jre)", 0),
+                        ("OpenJDK 17 (jre)", 1),
+                        ("VSCodium", 2),
+                        id="programming",
+                    ),
                 ),
-            ),
-            Vertical(
-                Label("Apps"),
-                SelectionList[int](
-                    ("VLC", 0),
-                    ("LibreOffice", 1),
-                    ("Synaptic", 2),
-                    ("AQemu (VMs)", 3),
-                    ("TLauncher", 4),
-                    id="apps",
+                Vertical(
+                    Label("Apps"),
+                    SelectionList[int](
+                        ("VLC", 0),
+                        ("LibreOffice", 1),
+                        ("Synaptic", 2),
+                        ("AQemu (VMs)", 3),
+                        ("TLauncher", 4),
+                        id="apps",
+                    ),
                 ),
-            ),
-            Horizontal(
-                Label("Desktop environment:"),
-                Select(id="de", value="I3 (Very Lightweight)", options=((line, line) for line in LINES)),
-            ),
-            Button.success("Install CleanVM", id="install"),
-        )
+                Horizontal(
+                    Label("Desktop environment:"),
+                    Select(
+                        id="de",
+                        value="I3 (Very Lightweight)",
+                        options=((line, line) for line in LINES),
+                    ),
+                ),
+                Button.success("Install CleanVM", id="install"),
+            )
 
     def _selected_values(self, widget):
         selected = widget.selected
@@ -73,6 +78,8 @@ class InstallApp(App):
             return []
         if isinstance(selected, set):
             return sorted(selected)
+        if isinstance(selected, list):
+            return selected
         return list(selected)
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
