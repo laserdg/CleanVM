@@ -1,4 +1,6 @@
 #!/bin/bash
+
+set -eu
 setterm blank 0
 setterm powerdown 0
-/usr/bin/cinnamon-session > /dev/null 2>&1
+exec /usr/bin/cinnamon-session >/dev/null 2>&1
