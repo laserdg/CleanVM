@@ -24,12 +24,12 @@ BlobeVM is a Virtual Machine that...
 * Can run games with almost no lag
 * Can Bypass School Network
 * Is very fast
-"""
+ """
 InstallHead="""
 # BlobeVM Installer
 """     
 
-LINES = ["KDE Plasma (Heavy)", "XFCE4 (Lightweight)", "I3 (Very Lightweight)", "GNOME 42 (Very Heavy)", "Cinnamon", "LXQT"]
+LINES = ["I3 (Very Lightweight)", "KDE Plasma (Heavy)", "XFCE4 (Lightweight)", "GNOME 42 (Very Heavy)", "Cinnamon", "LXQT"]
 
 class InstallScreen(Screen):
     CSS_PATH = "installer.tcss"
@@ -41,39 +41,34 @@ class InstallScreen(Screen):
         Vertical (
          Label("Default Apps (you should keep them)"),
          SelectionList[int]( 
-            ("Wine", 0, True),
-            ("Chrome", 1, True),
-            ("Xarchiver", 2, True),
-            ("Discord", 3, True),
-            ("Steam", 4, True),
-            ("Minecraft", 5, True),
-            id="defaultapps"
-        ),),
+             ("Helium Browser", 0, True),
+             id="defaultapps"
+         ),),
         Vertical (
          Label("Programming"),
          SelectionList[int]( 
-            ("OpenJDK 8 (jre)", 0),
-            ("OpenJDK 17 (jre)", 1),
-            ("VSCodium", 2),
-            id="programming"
-        ),),
+             ("OpenJDK 8 (jre)", 0),
+             ("OpenJDK 17 (jre)", 1),
+             ("VSCodium", 2),
+             id="programming"
+         ),),
         Vertical (
          Label("Apps"),
          SelectionList[int]( 
-            ("VLC", 0),
-            ("LibreOffice", 1),
-            ("Synaptic", 2),
-            ("AQemu (VMs)", 3),
-            ("TLauncher", 4),
-            id="apps"
-        ),),
-        )
+             ("VLC", 0),
+             ("LibreOffice", 1),
+             ("Synaptic", 2),
+             ("AQemu (VMs)", 3),
+             ("TLauncher", 4),
+             id="apps"
+         ),),
+         )
 
         yield Vertical (
          Horizontal(
-            Label("\nDesktop Environement :"),
-            Select(id="de", value="KDE Plasma (Heavy)", options=((line, line) for line in LINES)),
-        ),)
+             Label("\nDesktop Environement :"),
+             Select(id="de", value="I3 (Very Lightweight)", options=((line, line) for line in LINES)),
+         ),)
         yield Horizontal (
             Button.error("Back", id="back"),
             Button.warning("Install NOW", id="in"),
