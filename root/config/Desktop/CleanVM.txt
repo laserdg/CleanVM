@@ -1,0 +1,9 @@
+Welcome to CleanVM!
+
+CleanVM is a lightweight browser VM built for speed and simplicity.
+
+- Runs entirely in a web browser
+- Minimal desktop experience
+- Fast performance
+- Browser-first interaction
+- Optimized for low overhead and simplicity
