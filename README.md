@@ -21,7 +21,7 @@ Open a blank GitHub Codespace and run:
 curl -fsSL https://raw.githubusercontent.com/laserdg/CleanVM/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
-The install script writes the default config automatically and starts the VM without any manual Install button click.
+This install flow writes the default configuration automatically and starts the VM without any manual Install button click.
 
 ## Project goals
 
@@ -29,8 +29,8 @@ The install script writes the default config automatically and starts the VM wit
 - performance focused
 - minimal default software footprint
 - default to i3 and Helium
-- simple single-page installer flow
+- simple automatic installer flow
 
 ## Notes
 
-This project is a clean, stripped-down browser VM setup designed for a focused desktop experience without unnecessary default apps.
+This project is intentionally streamlined for a focused browser VM experience without the old interactive TUI flow.

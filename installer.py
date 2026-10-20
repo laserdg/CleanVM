@@ -6,7 +6,7 @@ DEFAULT_CONFIG = {
     "defaultapps": [0],
     "programming": [],
     "apps": [],
-    "enablekvm": True,
+    "enablekvm": False,
     "DE": "I3 (Very Lightweight)",
     "install": True,
 }
@@ -14,4 +14,4 @@ DEFAULT_CONFIG = {
 with open("options.json", "w", encoding="utf-8") as f:
     json.dump(DEFAULT_CONFIG, f)
 
-print("Auto-install config written to options.json. No install button required.")
+print("Auto-install config written to options.json. The TUI installer is no longer used.")

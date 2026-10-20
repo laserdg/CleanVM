@@ -1,3 +1,4 @@
-Screen {
-    padding: 1 2;
-}
+/*
+The interactive TUI installer has been removed.
+The installer script now writes the default config automatically.
+*/
