@@ -1,6 +1,6 @@
 # CleanVM
 
-A browser-only, performance-focused VM setup based on BlobeVM, optimized for a minimal desktop experience.
+A browser-only, performance-focused VM setup optimized for a minimal desktop experience.
 
 ## Overview
 
@@ -39,4 +39,4 @@ The VM is designed to launch directly in the browser once the install completes.
 
 ## Notes
 
-This project is a clean, stripped-down fork intended for a focused browser and desktop experience without the extra default apps common in heavier setups.
+This project is a clean, stripped-down browser VM setup designed for a focused desktop experience without unnecessary default apps.
