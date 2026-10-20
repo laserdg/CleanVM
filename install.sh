@@ -6,17 +6,20 @@ echo "Starting CleanVM installation..."
 
 git clone https://github.com/laserdg/CleanVM.git
 cd CleanVM
-pip install textual
-sleep 2
-python3 installer.py
+
+cat > options.json <<'JSON'
+{"defaultapps":[0],"programming":[],"apps":[],"enablekvm":true,"DE":"I3 (Very Lightweight)","install":true}
+JSON
+
 if [[ ! -f options.json ]]; then
-    echo "Error: installer did not create options.json" >&2
+    echo "Error: no installer config was generated" >&2
     exit 1
 fi
 if ! jq -e 'type == "object"' options.json >/dev/null 2>&1; then
     echo "Error: options.json is invalid JSON" >&2
     exit 1
 fi
+
 docker build -t cleanvm . --no-cache
 cd ..
 

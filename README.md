@@ -4,7 +4,7 @@ A browser-only, performance-focused VM setup optimized for a minimal desktop exp
 
 ## Overview
 
-CleanVM is a lightweight virtual machine environment designed to run in the browser with a streamlined installation flow. It defaults to i3, keeps the desktop minimal, and runs through a KasmVNC browser interface for fast interaction.
+CleanVM is a lightweight virtual machine environment designed to run in the browser with a streamlined installation flow. It defaults to i3, keeps the desktop minimal, and runs through a KasmVNC browser session.
 
 ## Default setup
 
@@ -21,13 +21,7 @@ Open a blank GitHub Codespace and run:
 curl -fsSL https://raw.githubusercontent.com/laserdg/CleanVM/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
-Then:
-
-1. Paste the install command in the terminal
-2. Click Install in the CleanVM installer UI
-3. Open the forwarded KasmVNC page on port 3000
-
-The VM is designed to launch directly in the browser once the install completes.
+The install script writes the default config automatically and starts the VM without any manual Install button click.
 
 ## Project goals
 
