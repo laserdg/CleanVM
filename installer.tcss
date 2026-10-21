@@ -1,4 +1,4 @@
 /*
-The interactive TUI installer has been removed.
-The installer script now writes the default config automatically.
+Deprecated: interactive TUI installer removed.
+This file is intentionally blank to prevent the old UI from being used.
 */

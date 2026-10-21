@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# Deprecated: interactive TUI installer removed.
+# This file is intentionally kept as a no-op to avoid breaking
+# older references while the automatic install flow is used.
+
 import json
 
 DEFAULT_CONFIG = {
@@ -14,4 +18,4 @@ DEFAULT_CONFIG = {
 with open("options.json", "w", encoding="utf-8") as f:
     json.dump(DEFAULT_CONFIG, f)
 
-print("Auto-install config written to options.json. The TUI installer is no longer used.")
+print("Auto-install config written to options.json. The old TUI installer is disabled.")
